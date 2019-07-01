@@ -3266,7 +3266,7 @@ class BenchmarkCNN(object):
         else:
           horovod_device = ''
         # All-reduce gradients using Horovod.
-        grads = [hvd._push_pull(grad, average=False, device_dense=horovod_device)
+        grads = [hvd.push_pull(grad, average=False, device_dense=horovod_device)
                  for grad in grads]
 
       if self.params.staged_vars:
